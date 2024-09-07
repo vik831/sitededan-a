@@ -1,0 +1,173 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fae4c9;
+    color: #333;
+}
+
+/* Barra de navegação */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    background-color: #841313;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+/* Menu responsivo */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none; /* Esconde os links de navegação */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0px;
+        background-color: #841313;
+        width: 100%;
+        text-align: left;
+    }
+
+    nav.active {
+        display: flex; /* Mostra o menu quando clicado */
+    }
+
+    nav a {
+        margin: 10px 15px;
+    }
+
+    .menu-toggle {
+        display: block; /* Exibe o ícone de menu */
+        margin: 0px 20px;
+    }
+
+    .logo img {
+        height: 40px; /* Ajusta o tamanho da logo em telas menores */
+    }
+}
+
+/* Banner */
+.banner {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 100vh; /* Mantém a altura da tela inteira */
+    background: url('banner3.jpeg') no-repeat center center;
+    background-size: cover; /* Faz com que a imagem cubra toda a área */
+}
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 768px) {
+    .banner {
+        background-size: contain; /* A imagem será redimensionada para caber dentro do container */
+        background-position: top; /* Move a imagem para o topo */
+    }
+}
+
+
+.banner h1 {
+    color: rgb(0, 0, 0);
+    font-size: 48px;
+    padding: 20px;
+}
+
+.banner p {
+    color: #190408;
+    font-size: 24px;
+    padding: 20px;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 32px;
+    }
+
+    .banner p {
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+/* todas as Seções */
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+.teste {
+    width: 100%;
+    overflow: hidden; 
+    white-space: nowrap;
+    position: relative; /* Garante que o conteúdo deslize dentro do contêiner */
+}
+
+.teste-slide {
+    display: inline-flex; /* Usa inline-flex para garantir que as imagens fiquem lado a lado */
+    animation: anima 20s linear infinite;
+}
+
+.teste-slide img {
+    width: 300px; /* Ajusta o tamanho das imagens */
+    margin: 0 20px; /* Espaçamento entre as imagens */
+}
+
+/* Animação para fazer o slide percorrer todo o conteúdo */
+@keyframes anima {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Move o slide ao longo de 100% da largura */
+    }
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .teste-slide img {
+        width: 200px; /* Reduz o tamanho da imagem em telas menores */
+        margin: 0 10px; /* Espaçamento reduzido em telas menores */
+    }
+    
+    @keyframes anima {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%); /* Move o slide ao longo de toda a largura */
+        }
+    }
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
