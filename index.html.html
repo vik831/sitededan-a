@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Studio de Dança Movimento</title>
+    <meta name="description" content="Aulas de ballet clássico, dança contemporânea e outros estilos para todos os níveis. Agende sua aula experimental pelo WhatsApp.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💃</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --vinho: #841313;
+    --creme: #fae4c9;
+    --whatsapp: #1da851;
+    --whatsapp-escuro: #168a42;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--creme);
+    color: #333;
+}
+
+/* Evita que o título da seção fique escondido atrás do header fixo */
+section[id] {
+    scroll-margin-top: 80px;
+}
+
+/* Foco visível para navegação por teclado */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px #000;
+}
+
+/* Barra de navegação */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    background-color: var(--vinho);
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    display: block;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Menu responsivo */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none; /* Esconde os links de navegação */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Logo abaixo do header, qualquer que seja a altura dele */
+        right: 0;
+        background-color: var(--vinho);
+        width: 100%;
+        text-align: left;
+    }
+
+    nav.active {
+        display: flex; /* Mostra o menu quando clicado */
+    }
+
+    nav a {
+        margin: 10px 15px;
+    }
+
+    .menu-toggle {
+        display: block; /* Exibe o ícone de menu */
+        margin: 0 20px;
+    }
+
+    .logo img {
+        height: 40px; /* Ajusta o tamanho da logo em telas menores */
+    }
+}
+
+/* Banner */
+.banner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+        linear-gradient(135deg, #841313, #d98a4a) center / cover no-repeat;
+}
+
+.banner h1 {
+    color: #fff;
+    font-size: 48px;
+    padding: 20px;
+    margin: 0;
+}
+
+.banner p {
+    color: #fff;
+    font-size: 24px;
+    padding: 20px;
+    margin: 0;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .banner h1 {
+        font-size: 32px;
+    }
+
+    .banner p {
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+/* Botão do WhatsApp */
+.btn-whatsapp {
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 14px 28px;
+    background-color: var(--whatsapp);
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 999px;
+    transition: background-color 0.2s;
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--whatsapp-escuro);
+}
+
+/* Botão flutuante do WhatsApp */
+.whatsapp-flutuante {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--whatsapp);
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1100;
+    transition: background-color 0.2s;
+}
+
+.whatsapp-flutuante:hover {
+    background-color: var(--whatsapp-escuro);
+}
+
+/* Todas as seções */
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+section p {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.banner p {
+    max-width: none;
+    margin: 0;
+}
+
+#contato a:not(.btn-whatsapp) {
+    color: var(--vinho);
+}
+
+/* Modalidades e horários */
+.modalidades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto 0;
+}
+
+.modalidade {
+    background-color: #fff;
+    border-top: 6px solid var(--vinho);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modalidade h3 {
+    margin: 0 0 6px;
+    color: var(--vinho);
+}
+
+.modalidade .nivel {
+    margin: 0 0 12px;
+    font-style: italic;
+}
+
+.horarios {
+    list-style: none;
+    margin: 0 0 16px;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.horarios li {
+    padding: 4px 0;
+}
+
+.modalidade .btn-whatsapp {
+    margin: 0;
+    font-size: 16px;
+    padding: 12px 22px;
+}
+
+/* Galeria */
+.teste {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.teste-slide {
+    display: inline-flex; /* Mantém as imagens lado a lado */
+    animation: anima 20s linear infinite;
+}
+
+.teste-slide img {
+    width: 300px;
+    margin: 0 20px;
+}
+
+.teste:hover .teste-slide {
+    animation-play-state: paused;
+}
+
+@keyframes anima {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .teste-slide img {
+        width: 200px;
+        margin: 0 10px;
+    }
+}
+
+/* Respeita quem desativa animações no sistema */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .teste {
+        overflow-x: auto;
+    }
+
+    .teste-slide {
+        animation: none;
+    }
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* ===== Visual editorial escuro ===== */
+:root {
+    --fundo: #0d0d0d;
+    --superficie: #141414;
+    --linha: #2a2a2a;
+    --acento: #ff4d4d;
+    --texto: #ece4d8;
+    --fonte-titulo: "Anton", Impact, "Arial Narrow Bold", sans-serif;
+    color-scheme: dark;
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1;
+}
+
+/* Cabeçalho e menu */
+header {
+    padding: 14px 32px;
+    padding-top: calc(14px + env(safe-area-inset-top, 0px));
+    background-color: rgba(13, 13, 13, 0.82);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+nav a {
+    position: relative;
+    padding: 6px 0;
+    margin: 0 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+nav a:hover { text-decoration: none; }
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--acento);
+    transform: scaleX(0);
+    transition: transform 0.25s;
+}
+
+nav a:hover::after { transform: scaleX(1); }
+
+/* Banner */
+.banner {
+    position: relative;
+    justify-content: flex-start;
+    align-items: flex-end;
+    padding: 120px clamp(20px, 6vw, 80px) 72px;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13, 13, 13, 0.95), rgba(13, 13, 13, 0) 60%);
+    pointer-events: none;
+}
+
+.banner-conteudo {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    text-align: left;
+}
+
+.eyebrow {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--acento);
+}
+
+.banner h1 {
+    font-size: clamp(3.2rem, 12vw, 9rem);
+    line-height: 0.95;
+    padding: 0;
+    text-shadow: none;
+}
+
+.banner h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 5px;
+    margin-top: 24px;
+    background: var(--acento);
+}
+
+.banner p {
+    max-width: 540px;
+    padding: 24px 0 16px;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: #f4efe8;
+    text-align: left;
+    text-shadow: none;
+}
+
+.banner .btn-whatsapp { margin: 10px 12px 0 0; }
+
+.btn-ghost {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 15px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-ghost:hover { background-color: #fff; color: #000; }
+
+/* Botões */
+.btn-whatsapp {
+    background-color: var(--whatsapp-escuro);
+    border-radius: 2px;
+    padding: 16px 30px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-whatsapp:hover { background-color: #117235; transform: translateY(-2px); box-shadow: none; }
+
+/* Seções numeradas */
+main { counter-reset: sec; }
+
+section:not(.banner) {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 96px 32px;
+    text-align: left;
+    background: none;
+}
+
+section h2 {
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    color: #fff;
+    margin: 0 0 24px;
+}
+
+section h2::before {
+    counter-increment: sec;
+    content: "0" counter(sec);
+    display: block;
+    margin-bottom: 14px;
+    font-family: "Inter", system-ui, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    color: var(--acento);
+}
+
+section h2::after { display: none; }
+
+section p {
+    max-width: 620px;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.05rem;
+}
+
+#sobre {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 0 64px;
+    align-items: start;
+}
+
+#sobre h2 { margin: 0; }
+#sobre p { margin-top: 0; font-size: 1.2rem; }
+
+/* Modalidades */
+.modalidades-grid {
+    max-width: none;
+    gap: 1px;
+    margin-top: 40px;
+    background-color: var(--linha);
+    border: 1px solid var(--linha);
+}
+
+.modalidade {
+    align-items: flex-start;
+    text-align: left;
+    background-color: var(--superficie);
+    border-top: 0;
+    border-radius: 0;
+    padding: 36px 28px;
+    box-shadow: none;
+    transition: background-color 0.25s;
+}
+
+.modalidade:hover { background-color: #1d1d1d; transform: none; box-shadow: none; }
+
+.modalidade h3 { font-size: 2rem; color: #fff; margin-bottom: 10px; }
+
+.modalidade .nivel {
+    font-style: normal;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--acento);
+    margin-bottom: 20px;
+}
+
+.horarios { width: 100%; margin-bottom: 28px; }
+
+.horarios li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--linha);
+}
+
+.horarios li:last-child { border-bottom: 0; }
+
+.modalidade .btn-whatsapp {
+    padding: 12px 22px;
+    font-size: 12px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.modalidade .btn-whatsapp:hover {
+    background-color: var(--whatsapp-escuro);
+    border-color: var(--whatsapp-escuro);
+}
+
+/* Galeria */
+.teste {
+    padding: 8px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+.teste-slide img {
+    aspect-ratio: 3 / 2;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: none;
+    filter: grayscale(0.7);
+    transition: filter 0.3s;
+}
+
+.teste-slide img:hover { filter: none; }
+
+/* Contato e rodapé */
+#contato h2 { margin-bottom: 28px; }
+#contato p { margin-top: 8px; margin-bottom: 8px; font-size: 1.15rem; }
+
+#contato a:not(.btn-whatsapp) {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--acento);
+    text-underline-offset: 4px;
+}
+
+footer {
+    background-color: #000;
+    border-top: 1px solid var(--linha);
+    color: #a8a29a;
+    padding: 32px 16px;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+footer p { margin: 0; }
+
+@media (max-width: 768px) {
+    header { padding-left: 12px; padding-right: 12px; }
+    .menu-toggle { margin: 0 8px; }
+
+    nav {
+        background-color: var(--fundo);
+        border-bottom: 1px solid var(--linha);
+    }
+
+    nav a { padding: 12px 0; margin: 0 20px; }
+
+    .banner { justify-content: flex-start; text-align: left; padding-bottom: 56px; }
+    .banner-conteudo, .banner p { text-align: left; }
+    .banner h1::after { margin-left: 0; margin-right: 0; }
+
+    section:not(.banner) { padding: 64px 20px; }
+    #sobre { grid-template-columns: 1fr; gap: 24px; }
+    #sobre h2 { margin-bottom: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modalidade, .btn-whatsapp, .btn-ghost, nav a::after, .teste-slide img { transition: none; }
+    .btn-whatsapp:hover { transform: none; }
+}
+/* ===== Complementos inspirados no site de referência ===== */
+.destaque { color: var(--acento); }
+.vazado { color: transparent; -webkit-text-stroke: 1.5px #fff; }
+@supports not (-webkit-text-stroke: 1px #fff) { .vazado { color: #fff; } }
+#sobre h2 { grid-row: span 2; }
+.lema { grid-column: 2; margin-top: 24px; font-size: 0.85rem !important; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; }
+
+.icone { width: 30px; height: 30px; margin-bottom: 18px; fill: none; stroke: var(--acento); stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.modalidade:hover { outline: 1px solid var(--acento); outline-offset: -1px; }
+
+.depoimentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; margin-top: 40px; background: var(--linha); border: 1px solid var(--linha); }
+.depoimento { margin: 0; padding: 36px 28px; background: var(--superficie); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.depoimento blockquote { margin: 0; font-size: 1.1rem; line-height: 1.6; color: #fff; }
+.depoimento blockquote::before { content: "\201C"; display: block; margin-bottom: 8px; font-family: var(--fonte-titulo); font-size: 3rem; line-height: 0.6; color: var(--acento); }
+.depoimento figcaption { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--acento); }
+.depoimento figcaption span { display: block; margin-top: 4px; letter-spacing: 0.1em; color: #a8a29a; }
+
+.contato-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.contato-info p { margin: 10px 0; }
+.form-wrap { padding: 40px 32px; background: linear-gradient(135deg, rgba(255, 77, 77, 0.16), rgba(255, 77, 77, 0) 55%), #0a0a0a; border: 1px solid var(--linha); clip-path: polygon(32px 0, 100% 0, 100% 100%, 0 100%, 0 32px); }
+.form-contato label { display: block; margin-top: 18px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #a8a29a; }
+.form-contato label:first-child { margin-top: 0; }
+.form-contato input, .form-contato select, .form-contato textarea { width: 100%; box-sizing: border-box; margin-top: 6px; padding: 12px 0; background: transparent; border: 0; border-bottom: 1px solid #555; border-radius: 0; color: #fff; font: inherit; }
+.form-contato select option { background: #0a0a0a; color: #fff; }
+.form-contato input:focus, .form-contato select:focus, .form-contato textarea:focus { outline: 0; border-bottom-color: var(--acento); box-shadow: 0 2px 0 var(--acento); }
+.form-contato .btn-whatsapp { width: 100%; margin: 28px 0 0; border: 0; cursor: pointer; font-family: inherit; }
+
+footer { text-align: left; padding: 48px 32px; }
+.rodape { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 24px; }
+.rodape img { display: block; height: 40px; width: auto; margin-bottom: 12px; }
+.rodape p { max-width: 340px; font-size: 0.9rem; line-height: 1.6; letter-spacing: 0; text-transform: none; }
+.rodape-links { display: flex; flex-direction: column; gap: 10px; text-align: right; }
+.rodape-links a { color: #fff; text-decoration: none; }
+.rodape-links a:hover { color: var(--acento); }
+.rodape .copy { width: 100%; max-width: none; padding-top: 20px; border-top: 1px solid var(--linha); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+@media (max-width: 768px) {
+    #sobre h2 { grid-row: auto; }
+    .lema { grid-column: 1; }
+    .contato-grid { grid-template-columns: 1fr; gap: 32px; }
+    .form-wrap { padding: 32px 20px; }
+    footer { padding: 40px 20px; }
+    .rodape-links { text-align: left; }
+}
+/* ===== Animações mais suaves ===== */
+:root { --suave: cubic-bezier(0.22, 1, 0.36, 1); }
+
+nav a::after { transition: transform 0.6s var(--suave); }
+
+.btn-whatsapp { transition: background-color 0.45s var(--suave), transform 0.6s var(--suave); }
+.btn-whatsapp:hover { transform: translateY(-1px); }
+.btn-ghost { transition: background-color 0.45s var(--suave), color 0.45s var(--suave); }
+
+.modalidade {
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    transition: background-color 0.8s var(--suave), outline-color 0.8s var(--suave);
+}
+.modalidade:hover { outline-color: var(--acento); }
+
+.teste-slide { animation-duration: 75s; }
+.teste-slide img { transition: filter 1s var(--suave); }
+
+/* Entrada do banner */
+@keyframes subir {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: none; }
+}
+.banner-conteudo > * { opacity: 0; animation: subir 1.4s var(--suave) forwards; }
+.banner-conteudo > :nth-child(2) { animation-delay: 0.18s; }
+.banner-conteudo > :nth-child(3) { animation-delay: 0.36s; }
+.banner-conteudo > :nth-child(4) { animation-delay: 0.54s; }
+.banner-conteudo > :nth-child(5) { animation-delay: 0.72s; }
+
+/* Menu do celular */
+@keyframes menu-in {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: none; }
+}
+nav.active { animation: menu-in 0.5s var(--suave); }
+
+/* Aparecer ao rolar (só quando o JavaScript está ativo) */
+.js .revelar {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 1.3s var(--suave), transform 1.3s var(--suave);
+}
+.js .revelar.visivel { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .banner-conteudo > *, nav.active { animation: none; opacity: 1; }
+    .js .revelar { opacity: 1; transform: none; transition: none; }
+}
+/* ===== Galeria em grade (estilo "jornal") ===== */
+.galeria-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 40px; }
+.galeria-item { position: relative; margin: 0; aspect-ratio: 3 / 4; overflow: hidden; background: #000; }
+.galeria-item img { display: block; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: filter 1.8s cubic-bezier(0.45, 0, 0.55, 1), transform 2.4s var(--suave); }
+.galeria-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0) 55%); pointer-events: none; }
+.galeria-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; padding: 0 28px 32px; }
+.galeria-item .tag { display: block; margin-bottom: 8px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--acento); opacity: 0; transition: opacity 1.2s var(--suave); }
+.galeria-item .titulo { display: block; font-size: 1.05rem; font-weight: 500; line-height: 1.4; letter-spacing: 0.02em; text-transform: uppercase; color: #fff; }
+.galeria-item:hover img { filter: grayscale(0); transform: scale(1.015); }
+.galeria-item:hover .tag { opacity: 1; }
+.js .galeria-item.revelar { transition-duration: 1.8s; }
+
+@media (hover: none) { .galeria-item .tag { opacity: 1; transform: none; } }
+@media (max-width: 900px) { .galeria-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .galeria-item figcaption { padding: 0 20px 24px; } }
+@media (prefers-reduced-motion: reduce) { .galeria-item img { transition: filter 1.8s cubic-bezier(0.45, 0, 0.55, 1); } .galeria-item .tag { transition: none; } .galeria-item:hover img { transform: none; } }
+</style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="#inicio" aria-label="Studio de Dança Movimento - início">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjAiIGhlaWdodD0iNjEiIHZpZXdCb3g9IjAgMCAyMjAgNjEiPjx0ZXh0IHg9IjAiIHk9IjQwIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzMCIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj5Nb3ZpbWVudG88L3RleHQ+PC9zdmc+" alt="Studio de Dança Movimento">
+            </a>
+        </div>
+
+        <nav id="menu" aria-label="Menu principal">
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#modalidades">Modalidades</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#depoimentos">Depoimentos</a>
+            <a href="#contato">Contato</a>
+        </nav>
+
+        <!-- Botão de menu para dispositivos móveis -->
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">&#9776;</button>
+    </header>
+
+    <main>
+        <section class="banner" id="inicio">
+            <div class="banner-conteudo">
+                <span class="eyebrow">Studio de Dança Movimento</span>
+                <h1>Dance com paixão</h1>
+                <p>Explore o ritmo que faz seu coração vibrar.<br>Nossos cursos de dança são projetados para todos os níveis
+                    e estilos.<br> Junte-se a nós e descubra a alegria de dançar com paixão!</p>
+                <a class="btn-whatsapp"
+                   href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20aula%20experimental%20no%20Studio%20de%20Dan%C3%A7a%20Movimento."
+                   target="_blank" rel="noopener noreferrer">
+                    Agende uma aula experimental
+                </a>
+                <a class="btn-ghost" href="#modalidades">Ver modalidades</a>
+            </div>
+        </section>
+
+        <section id="sobre">
+            <h2>Sobre <span class="destaque">nós</span></h2>
+            <p>O Studio de Dança Movimento oferece aulas de vários estilos de dança, desde ballet clássico até dança
+                contemporânea. Junte-se a nós e descubra o poder transformador da dança!</p>
+            <p class="lema">Movimento. Ritmo. <span class="destaque">Paixão.</span></p>
+        </section>
+
+        <section id="modalidades">
+            <h2>Modalidades e <span class="vazado">horários</span></h2>
+            <p>Escolha o estilo que combina com você e peça uma aula experimental.</p>
+
+            <!-- EXEMPLO: troque nomes, níveis, dias e horários pelos reais do estúdio -->
+            <div class="modalidades-grid">
+                <article class="modalidade">
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4M17 19h4"/></svg>
+                    <h3>Ballet clássico</h3>
+                    <p class="nivel">Iniciante e intermediário</p>
+                    <ul class="horarios">
+                        <li>Segunda e quarta, 18h30</li>
+                        <li>Sábado, 9h</li>
+                    </ul>
+                    <a class="btn-whatsapp"
+                       href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20aulas%20de%20Ballet%20cl%C3%A1ssico."
+                       target="_blank" rel="noopener noreferrer">Quero saber mais</a>
+                </article>
+
+                <article class="modalidade">
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/><path d="M2 16c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2"/></svg>
+                    <h3>Dança contemporânea</h3>
+                    <p class="nivel">Todos os níveis</p>
+                    <ul class="horarios">
+                        <li>Terça e quinta, 19h30</li>
+                    </ul>
+                    <a class="btn-whatsapp"
+                       href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20aulas%20de%20Dan%C3%A7a%20contempor%C3%A2nea."
+                       target="_blank" rel="noopener noreferrer">Quero saber mais</a>
+                </article>
+
+                <article class="modalidade">
+                    <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    <h3>Jazz</h3>
+                    <p class="nivel">Iniciante</p>
+                    <ul class="horarios">
+                        <li>Quarta, 20h</li>
+                        <li>Sábado, 10h30</li>
+                    </ul>
+                    <a class="btn-whatsapp"
+                       href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20as%20aulas%20de%20Jazz."
+                       target="_blank" rel="noopener noreferrer">Quero saber mais</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="galeria">
+            <h2>Nossa <span class="vazado">galeria</span></h2>
+            <!-- EXEMPLO: troque as imagens, os textos alt, as etiquetas e os títulos por fotos reais das aulas -->
+            <div class="galeria-grid">
+                <figure class="galeria-item">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjODQxMzEzIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYzI1NjJiIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjZykiLz48dGV4dCB4PSIxNTAiIHk9IjEwOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIyIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Gb3RvIDE8L3RleHQ+PC9zdmc+" alt="Aula de ballet clássico" loading="lazy">
+                    <figcaption><span class="tag">Ballet clássico</span><span class="titulo">Técnica e delicadeza</span></figcaption>
+                </figure>
+                <figure class="galeria-item">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWEwYzBjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYTgzYTNhIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjZykiLz48dGV4dCB4PSIxNTAiIHk9IjEwOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIyIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Gb3RvIDI8L3RleHQ+PC9zdmc+" alt="Aula de dança contemporânea" loading="lazy">
+                    <figcaption><span class="tag">Contemporânea</span><span class="titulo">Expressão em movimento</span></figcaption>
+                </figure>
+                <figure class="galeria-item">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYjU2NTFkIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjODQxMzEzIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjZykiLz48dGV4dCB4PSIxNTAiIHk9IjEwOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIyIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Gb3RvIDM8L3RleHQ+PC9zdmc+" alt="Aula de jazz" loading="lazy">
+                    <figcaption><span class="tag">Jazz</span><span class="titulo">Energia e ritmo</span></figcaption>
+                </figure>
+                <figure class="galeria-item">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiB2aWV3Qm94PSIwIDAgMzAwIDIwMCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWEwYzBjIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYTgzYTNhIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSIyMDAiIGZpbGw9InVybCgjZykiLz48dGV4dCB4PSIxNTAiIHk9IjEwOCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIyIiBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Gb3RvIDI8L3RleHQ+PC9zdmc+" alt="Turma no estúdio" loading="lazy">
+                    <figcaption><span class="tag">Estúdio</span><span class="titulo">Espaço para todos os níveis</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="depoimentos">
+            <h2>O que dizem nossos <span class="vazado">alunos</span></h2>
+            <!-- EXEMPLO: troque pelos depoimentos reais dos alunos -->
+            <div class="depoimentos-grid">
+                <figure class="depoimento">
+                    <blockquote>Cheguei sem nenhuma experiência e me senti acolhida desde a primeira aula.</blockquote>
+                    <figcaption>Aluna<span>Ballet clássico</span></figcaption>
+                </figure>
+                <figure class="depoimento">
+                    <blockquote>As aulas são animadas e a turma é incrível. Saio de lá com mais energia do que cheguei.</blockquote>
+                    <figcaption>Aluno<span>Jazz</span></figcaption>
+                </figure>
+                <figure class="depoimento">
+                    <blockquote>Minha filha ganhou confiança e adora cada ensaio. Recomendo de olhos fechados.</blockquote>
+                    <figcaption>Mãe de aluna<span>Dança contemporânea</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="contato">
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <h2>Vamos <span class="destaque">conversar</span></h2>
+                    <p>Conte qual estilo te interessa e agende sua aula experimental. A gente responde pelo WhatsApp.</p>
+                    <p>Endereço: Rua da Dança, 123 - Cidade</p>
+                    <p>Email: <a href="mailto:contato@studiodedanca.com">contato@studiodedanca.com</a></p>
+                    <p>Telefone: <a href="tel:+551112345678">(11) 1234-5678</a></p>
+                </div>
+                <div class="form-wrap">
+                    <form id="form-contato" class="form-contato">
+                        <label for="f-nome">Seu nome</label>
+                        <input id="f-nome" name="nome" type="text" required autocomplete="name">
+                        <label for="f-contato">E-mail ou telefone</label>
+                        <input id="f-contato" name="contato" type="text" autocomplete="email">
+                        <label for="f-interesse">Modalidade de interesse</label>
+                        <select id="f-interesse" name="interesse">
+                            <option>Ballet clássico</option>
+                            <option>Dança contemporânea</option>
+                            <option>Jazz</option>
+                            <option>Ainda não sei</option>
+                        </select>
+                        <label for="f-msg">Mensagem</label>
+                        <textarea id="f-msg" name="mensagem" rows="3"></textarea>
+                        <button class="btn-whatsapp" type="submit">Enviar pelo WhatsApp</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="rodape">
+            <div>
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMjAiIGhlaWdodD0iNjEiIHZpZXdCb3g9IjAgMCAyMjAgNjEiPjx0ZXh0IHg9IjAiIHk9IjQwIiBmb250LWZhbWlseT0iR2VvcmdpYSxzZXJpZiIgZm9udC1zaXplPSIzMCIgZm9udC1zdHlsZT0iaXRhbGljIiBmaWxsPSIjZmZmIj5Nb3ZpbWVudG88L3RleHQ+PC9zdmc+" alt="Studio de Dança Movimento">
+                <p>Aulas de dança para todos os níveis e estilos.</p>
+            </div>
+            <div class="rodape-links">
+                <a href="#modalidades">Modalidades</a>
+                <a href="#contato">Agende uma aula experimental</a>
+            </div>
+            <p class="copy">&copy; <span id="ano">2025</span> Studio de Dança Movimento - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp -->
+    <a class="whatsapp-flutuante"
+       href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+       target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
+        <svg viewBox="0 0 32 32" width="30" height="30" fill="currentColor" aria-hidden="true">
+            <path d="M16.04 3C9.4 3 4 8.4 4 15.03c0 2.12.55 4.18 1.6 6L4 29l8.17-1.57a12 12 0 0 0 3.87.64C22.67 28.07 28 22.67 28 16.04 28 9.4 22.67 3 16.04 3Zm0 22a9.9 9.9 0 0 1-3.37-.59l-.48-.17-4.85.93.95-4.72-.19-.5A9.9 9.9 0 0 1 6.1 15.03c0-5.46 4.46-9.9 9.94-9.9 5.47 0 9.9 4.44 9.9 9.9 0 5.47-4.43 9.97-9.9 9.97Zm5.43-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07a8.1 8.1 0 0 1-2.4-1.48 9 9 0 0 1-1.66-2.07c-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+        </svg>
+    </a>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('menu');
+
+        // Abre/fecha o menu no celular
+        toggle.addEventListener('click', () => {
+            const aberto = nav.classList.toggle('active');
+            toggle.setAttribute('aria-expanded', aberto);
+            toggle.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+        });
+
+        // Fecha o menu ao clicar em um link
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Abrir menu');
+            });
+        });
+
+        // Ano do rodapé atualizado automaticamente
+        document.getElementById('ano').textContent = new Date().getFullYear();
+
+        // Seções e cartões aparecem suavemente ao rolar a página
+        if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('js');
+            const alvos = document.querySelectorAll('section:not(.banner), .modalidade, .depoimento, .galeria-item');
+            const obs = new IntersectionObserver((itens) => {
+                itens.forEach(i => {
+                    if (i.isIntersecting) {
+                        const el = i.target;
+                        el.classList.add('visivel');
+                        obs.unobserve(el);
+                        // Depois da entrada, devolve o elemento ao estilo normal (sem atraso no hover)
+                        setTimeout(() => {
+                            el.classList.remove('revelar', 'visivel');
+                            el.style.transitionDelay = '';
+                        }, 3000);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+            alvos.forEach(el => {
+                if (el.matches('.modalidade, .depoimento, .galeria-item')) {
+                    el.style.transitionDelay = (Array.from(el.parentNode.children).indexOf(el) * 180) + 'ms';
+                }
+                el.classList.add('revelar');
+                obs.observe(el);
+            });
+        }
+
+        // Formulário: monta a mensagem e abre o WhatsApp do estúdio
+        document.getElementById('form-contato').addEventListener('submit', e => {
+            e.preventDefault();
+            const f = e.target;
+            let msg = 'Olá! Me chamo ' + f.nome.value + '. Tenho interesse em: ' + f.interesse.value + '.';
+            if (f.mensagem.value) msg += ' ' + f.mensagem.value;
+            if (f.contato.value) msg += ' Meu contato: ' + f.contato.value + '.';
+            window.open('https://wa.me/5511999999999?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+        });
+    </script>
+
+</body>
+
+</html>
